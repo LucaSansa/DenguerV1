@@ -1,0 +1,17 @@
+O Projeto utiliza um contexto para iniciar o aplicativo de modo que se o usuario não 
+tiver deslogado, ao abrir novamente o App aquele usuario ja estaria logado, da mesma
+forma se o usuario deslogar, ao abrir o App novamente ele tera de fazer login.
+
+Para isso é utilizado o createContext do React.
+    
+1 - Em src/contexts/auth.js é defenido uma função chamada AuthProvider que irá prover tudo que for necessario 
+para autenticação aos componentes envoltos, aqui utlizamos o AsyncStorage para guardar os dados do usuario quando
+logamos, o que nos permite a dinamica de manter o usuario logado caso ele apenas feche a App sem deslogar.
+
+Em App.js
+
+    <AuthProvider> <----- (src/contexts/auth) prove tudo para o componente Routes
+
+        <Routes/> <------ (src/routes/index.js) determina com base no AuthProvider para
+                           qual tela sera redirecionado, Home ou para tela de login.
+    </AuthProvider>

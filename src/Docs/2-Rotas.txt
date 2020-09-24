@@ -1,0 +1,12 @@
+Depois da verificação feita pelo AuthProvider em srx/contexts/auth.js o componente Routes é chamado,
+e como ele esta envolto do AuthProvider ele tem acesso ao contexto em que a autenticação se encontra.
+
+Em App.js
+
+      <AuthProvider>
+        <Routes/> <- chama o index.js em src/routes/index.js
+      </AuthProvider>
+
+Dentro de routes/index.js é feita a verificação do resultado de signed que vem do AuthProvider em contexts/auth.js
+nos redirecionando para a rota adequada, ou seja se signed for verdadeiro ele nos direciona para <AppRoutes/> que 
+ira nos direcionar para a Home, se nao, nos direciona para <AuthRoutes/> que nos levara para a tela de login/cadastro

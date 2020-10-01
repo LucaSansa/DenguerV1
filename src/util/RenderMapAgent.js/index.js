@@ -143,6 +143,18 @@ export default function RenderMapAgent(){
 
     }
 
+    async function deleteFoco(key){
+        await firebase.database().ref('locaisFoco').child(key).remove();
+    }
+
+    async function deleteCaso(key){
+        await firebase.database().ref('locaisCaso').child(key).remove();
+    }
+
+    async function deleteRisco(key){
+        await firebase.database().ref('locaisRisco').child(key).remove();
+    }
+
 
 
     //CHAMA AS FUNÇOES DE CADASTRO COM AS LOCALIZAÇÕES ATUALIZADAS COMO PARAMETROS
@@ -173,7 +185,7 @@ export default function RenderMapAgent(){
                 {
                     markersFoco.map((marker) => { //percorre o array de markers indicando onde há casos confimados de dengue
                         return(
-                            <Marker  key={marker.key} coordinate={marker.coords}>
+                            <Marker  key={marker.key} coordinate={marker.coords} onPress={() => deleteFoco(marker.key)}>
                                 <Image source={require('../../assets/icones/mosquitoFoco3.png')} style={styles.icones}/>
                             </Marker>
                         );
@@ -184,7 +196,7 @@ export default function RenderMapAgent(){
                 {
                     markersCaso.map((marker) => {
                         return(
-                            <Marker key={marker.key} coordinate={marker.coords}>
+                            <Marker key={marker.key} coordinate={marker.coords} onPress={() => deleteCaso(marker.key)}>
                                 <Image source={require('../../assets/icones/infectado3.png')} style={styles.icones}/>
                             </Marker>
                         );
@@ -194,7 +206,7 @@ export default function RenderMapAgent(){
                 {
                     markersRisco.map((marker) => {
                         return(
-                            <Marker key={marker.key} coordinate={marker.coords}>
+                            <Marker key={marker.key} coordinate={marker.coords} onPress={() => deleteRisco(marker.key)}>
                                 <Image source={require('../../assets/icones/areaRisco3.png')} style={styles.icones}/>
                             </Marker>
                         );

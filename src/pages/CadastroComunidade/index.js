@@ -15,7 +15,7 @@ export default function CadastroComunidade(){
 
     async function cadastrarObsComunidade(){
         let local = await firebase.database().ref('comunidade');
-        let chave = (await local.push()).key;
+        let chave = await local.push().key;
 
         local.child(chave).set({
             observacao: observacao,

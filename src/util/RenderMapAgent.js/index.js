@@ -33,7 +33,7 @@ export default function RenderMapAgent(){
                 () => {},   
                 {
                     timeout: 2000,
-                    maximumAge: 1000
+                    maximumAge: 2000
                 }
             )
 

@@ -147,7 +147,8 @@ export default function RenderMap(){
 const styles = StyleSheet.create({
     mapa:{
         width: '100%',
-        height: 510
+        height: 510 
+        //height: 420 dispositivo fisico
     },
     icones:{
         width: 40,

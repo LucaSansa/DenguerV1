@@ -32,8 +32,8 @@ export default function RenderMapAgent(){
                 },
                 () => {},   
                 {
-                    timeout: 2000,
-                    maximumAge: 2000
+                    timeout: 20000,
+                    maximumAge: 20000
                 }
             )
 
@@ -252,6 +252,7 @@ const styles = StyleSheet.create({
     mapa:{
         width: '100%',
         height: 450
+        //height: 350 dispositivo fisico
     },
     areaInteracaoMapa:{
         height: 70,

@@ -17,15 +17,16 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
     },
     conteudoLine:{
-        paddingLeft: 5,
-        fontSize: 16
+        paddingLeft: 8,
+        fontSize: 18,
     },
     label:{
         fontWeight: 'bold',
-        flex: 2
+        flex: 2,
+        fontSize: 18
     },
     conteudo:{
-        flex: 3
+        flex: 4
     },
     longLabel:{
         fontSize: 12

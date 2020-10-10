@@ -62,7 +62,7 @@ export default function Comunidade(){
             </View>
 
             <TouchableOpacity style={styles.btnAdicionar} onPress={() => navigation.navigate('CadastroComunidade')}>
-                <Icon name="add-circle-sharp" color="#FFF" size={58}/>
+                <Icon name="add-circle-sharp" color="#FFF" size={40}/>
             </TouchableOpacity>
             <Text style={styles.textoAdicionar}>Adicionar Localidade</Text>
 
@@ -82,9 +82,9 @@ const styles = StyleSheet.create({
         
     },
     areaInputComunidade:{
-        backgroundColor: '#FFF',
         width: '85%',
-        height: 470,
+        // height: 470,
+        height: '80%',
         borderRadius: 8,
         marginTop: 20,
 

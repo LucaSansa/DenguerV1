@@ -6,6 +6,7 @@ import { AuthContext } from '../../contexts/auth';
 
 import Line from './Line';
 import LongText from './LongText';
+import LongText1 from './LongText1';
 
 export default function RegistrosComunidade(props){
 
@@ -16,16 +17,11 @@ export default function RegistrosComunidade(props){
 
     return(
         
-        // <View style={styles.container}>
-        //     <Text style={styles.textoObs}>Comentario: {props.data.observacao}</Text> 
-        //     <Text style={styles.textoLocalizacao}>Rua: {props.data.localizacao}</Text>
-        //     <Text style={styles.textoReferencia}>Ponto Referencia: {props.data.referencia}</Text>
-        // </View>
 
         <View style={styles.container}>
-            <LongText label="Comentario: " conteudo={props.data.observacao}/>
-            <Line label="Rua: " conteudo={props.data.localizacao}/>
-            <Line label="Ponto Referencia: " conteudo={props.data.referencia}/>
+            <Line label="Endereço: " conteudo={props.data.localizacao}/>
+            <Line label="Referencia: " conteudo={props.data.referencia}/>
+            <LongText1 label="Comentario: " conteudo={props.data.observacao}/>
         </View>
 
 
@@ -34,40 +30,13 @@ export default function RegistrosComunidade(props){
 
 const styles = StyleSheet.create({
     container:{
-        borderWidth: 1,
-        borderColor: '#131313'
+
+        paddingBottom: 10,
+        backgroundColor: '#D3D3D3',
+        marginBottom: 15
+        
     }
 })
 
 
 
-
-// const styles = StyleSheet.create({
-//     container:{
-//         flex:1,
-//         //justifyContent: 'center',
-//         textAlign: 'center',
-//         //marginBottom: 15,
-//         borderBottomWidth: 1,
-//         //marginLeft: 10,
-//         borderBottomColor: '#131313',
-//         marginBottom: 10,
-//         marginTop: 10
-//     },
-//     textoObs:{
-//         fontSize: 20,
-//         paddingBottom: 5,
-//         marginLeft: 10
-//     },
-//     textoLocalizacao:{
-//         fontSize: 20,
-//         paddingBottom: 5,
-//         marginLeft: 10
-//     },
-//     textoReferencia:{
-//         fontSize: 20,
-//         paddingBottom: 5,
-//         marginLeft: 10
-//     }
-    
-// })

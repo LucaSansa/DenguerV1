@@ -252,10 +252,9 @@ const styles = StyleSheet.create({
     mapa:{
         width: '100%',
         height: 450
-        //height: 350 dispositivo fisico
+        //height: 350 //dispositivo fisico
     },
     areaInteracaoMapa:{
-        height: 70,
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-around',

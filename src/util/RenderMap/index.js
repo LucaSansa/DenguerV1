@@ -33,65 +33,113 @@ export default function RenderMap(){
                     maximumAge: 1000
                 }
             )
+            .then(async()=>{
+                await firebase.database().ref('locaisFoco').on('value', (snapshot) =>{
+                    setMarkersFoco([]);
 
-        }
-        async function carregaMarkersFoco(){ //carrega os marcadores de Foco
-            await firebase.database().ref('locaisFoco').on('value', (snapshot) =>{
-                setMarkersFoco([]);
-
-                snapshot.forEach((childItem) =>{
-                    let data = {
-                        key: childItem.key,
-                        coords:{
-                            latitude: parseFloat(childItem.val().latitude),
-                            longitude: parseFloat(childItem.val().longitude)
-                        }
-                    };
-                    setMarkersFoco(oldArray => [...oldArray, data]);
+                    snapshot.forEach((childItem) =>{
+                        let data = {
+                            key: childItem.key,
+                            coords:{
+                                latitude: parseFloat(childItem.val().latitude),
+                                longitude: parseFloat(childItem.val().longitude)
+                            }
+                        };
+                        setMarkersFoco(oldArray => [...oldArray, data]);
+                    })
                 })
-            });
-        }
+            })
+            .then(async() => {
+                await firebase.database().ref('locaisCaso').on('value', (snapshot) =>{
+                    setMarkersCaso([]);
 
-
-        async function carregaMarkersCaso(){ //carrega os marcadores de caso
-            await firebase.database().ref('locaisCaso').on('value', (snapshot) =>{
-                setMarkersCaso([]);
-
-                snapshot.forEach((childItem) =>{
-                    let data = {
-                        key: childItem.key,
-                        coords:{
-                            latitude: parseFloat(childItem.val().latitude),
-                            longitude: parseFloat(childItem.val().longitude)
-                        }
-                    };
-                    setMarkersCaso(oldArray => [...oldArray, data]);
+                    snapshot.forEach((childItem) =>{
+                        let data = {
+                            key: childItem.key,
+                            coords:{
+                                latitude: parseFloat(childItem.val().latitude),
+                                longitude: parseFloat(childItem.val().longitude)
+                            }
+                        };
+                        setMarkersCaso(oldArray => [...oldArray, data]);
+                    })
                 })
-            });
-        }
+            })
+            .then(async()=>{
+                await firebase.database().ref('locaisRisco').on('value', (snapshot) =>{
+                    setMarkersRisco([]);
 
-        async function carregaMarkersRisco(){ //carrega os marcadores de caso
-            await firebase.database().ref('locaisRisco').on('value', (snapshot) =>{
-                setMarkersRisco([]);
-
-                snapshot.forEach((childItem) =>{
-                    let data = {
-                        key: childItem.key,
-                        coords:{
-                            latitude: parseFloat(childItem.val().latitude),
-                            longitude: parseFloat(childItem.val().longitude)
-                        }
-                    };
-                    setMarkersRisco(oldArray => [...oldArray, data]);
+                    snapshot.forEach((childItem) =>{
+                        let data = {
+                            key: childItem.key,
+                            coords:{
+                                latitude: parseFloat(childItem.val().latitude),
+                                longitude: parseFloat(childItem.val().longitude)
+                            }
+                        };
+                        setMarkersRisco(oldArray => [...oldArray, data]);
+                    })
                 })
-            });
+            })
+
         }
+        // async function carregaMarkersFoco(){ //carrega os marcadores de Foco
+        //     await firebase.database().ref('locaisFoco').on('value', (snapshot) =>{
+        //         setMarkersFoco([]);
+
+        //         snapshot.forEach((childItem) =>{
+        //             let data = {
+        //                 key: childItem.key,
+        //                 coords:{
+        //                     latitude: parseFloat(childItem.val().latitude),
+        //                     longitude: parseFloat(childItem.val().longitude)
+        //                 }
+        //             };
+        //             setMarkersFoco(oldArray => [...oldArray, data]);
+        //         })
+        //     });
+        // }
+
+
+        // async function carregaMarkersCaso(){ //carrega os marcadores de caso
+        //     await firebase.database().ref('locaisCaso').on('value', (snapshot) =>{
+        //         setMarkersCaso([]);
+
+        //         snapshot.forEach((childItem) =>{
+        //             let data = {
+        //                 key: childItem.key,
+        //                 coords:{
+        //                     latitude: parseFloat(childItem.val().latitude),
+        //                     longitude: parseFloat(childItem.val().longitude)
+        //                 }
+        //             };
+        //             setMarkersCaso(oldArray => [...oldArray, data]);
+        //         })
+        //     });
+        // }
+
+        // async function carregaMarkersRisco(){ //carrega os marcadores de caso
+        //     await firebase.database().ref('locaisRisco').on('value', (snapshot) =>{
+        //         setMarkersRisco([]);
+
+        //         snapshot.forEach((childItem) =>{
+        //             let data = {
+        //                 key: childItem.key,
+        //                 coords:{
+        //                     latitude: parseFloat(childItem.val().latitude),
+        //                     longitude: parseFloat(childItem.val().longitude)
+        //                 }
+        //             };
+        //             setMarkersRisco(oldArray => [...oldArray, data]);
+        //         })
+        //     });
+        // }
         
 
         carregaLocalAtual();
-        carregaMarkersFoco();
-        carregaMarkersCaso();
-        carregaMarkersRisco();
+        // carregaMarkersFoco();
+        // carregaMarkersCaso();
+        // carregaMarkersRisco();
     },[])
 
     return(

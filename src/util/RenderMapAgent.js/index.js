@@ -36,7 +36,6 @@ export default function RenderMapAgent(){
                     maximumAge: 20000
                 }
             )
-
         }
 
         async function carregaMarkersFoco(){ //carrega os marcadores de Foco
@@ -90,13 +89,14 @@ export default function RenderMapAgent(){
                 })
             });
         }
-        
 
         localAgente();
         carregaMarkersFoco();
         carregaMarkersCaso();
         carregaMarkersRisco();
-    },[])
+    },[]);
+
+
 
     //FUNÇOES DE CADASTROS
     async function cadastrarFoco(lat, long){

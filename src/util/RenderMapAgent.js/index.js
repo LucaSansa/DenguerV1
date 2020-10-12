@@ -179,7 +179,7 @@ export default function RenderMapAgent(){
                 style={styles.mapa}
                 region={region}
                 showsUserLocation
-                loadingEnabled
+                //loadingEnabled
             >
 
                 {

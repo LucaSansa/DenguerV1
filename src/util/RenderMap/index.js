@@ -150,7 +150,7 @@ export default function RenderMap(){
                 style={styles.mapa}
                 region={region}
                 showsUserLocation
-                loadingEnabled
+                //loadingEnabled
             >
 
                 {

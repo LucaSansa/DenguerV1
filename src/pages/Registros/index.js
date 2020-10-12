@@ -13,6 +13,8 @@ export default function Registros(){
 
     const [lista, setLista] = useState([]);
     const [loading, setLoading] = useState(true); // controla o loading
+    //var aux = 0;
+    const [conta, setConta] = useState(0);
 
     useEffect(() => {
         
@@ -28,15 +30,35 @@ export default function Registros(){
                         enderecoFoco: childItem.val().enderecoFoco
                         
                     };
-
+                    
                     setLista(oldArray => [...oldArray, data]);
                 })
 
 
             });
+
+            
         }
+
+        // editando...
+        async function contador(){
+            await firebase.database().ref('locaisCaso').on('value', snapshot =>{
+                let aux = 0;
+                snapshot.forEach((childItem) =>{
+                    
+                    if(childItem.exists()){
+                        aux = aux + 1;
+                    }
+                })
+                setConta(aux);
+                //alert(parseInt(conta));
+            })
+        }
+        //
+
         //setLoading(true);
         carregaLista();
+        contador();
         setLoading(false);
 
     }, []);
@@ -51,7 +73,7 @@ export default function Registros(){
 
 
             <Text style={styles.titulo}>CASOS</Text>
-            <Text style={styles.nCasos}>00</Text>
+            <Text style={styles.nCasos}>{parseInt(conta)}</Text>
 
 
             <View style={styles.areaAlertas}>

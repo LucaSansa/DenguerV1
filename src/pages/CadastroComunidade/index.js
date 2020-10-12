@@ -22,10 +22,10 @@ export default function CadastroComunidade(){
             localizacao: localizacao,
             referencia: referencia
         })
+        .then(() =>{
+            navigation.navigate('Comunidade');
+        })
 
-        // setObservacao('');
-        // setLocalizacao('');
-        // setReferencia('');
     }
 
 
@@ -33,6 +33,7 @@ export default function CadastroComunidade(){
         setObservacao('');
         setLocalizacao('');
         setReferencia('');
+        navigation.navigate('Comunidade');
     }
 
 

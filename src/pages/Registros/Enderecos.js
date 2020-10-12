@@ -74,9 +74,13 @@ const styles = StyleSheet.create({
         width: 70,
         height: 30,
         borderRadius: 8,
-        justifyContent: 'center'
+        justifyContent: 'center',
+        backgroundColor: '#FF0000'
     },
     txtExcluir:{
         textAlign: 'center',
+        fontSize: 18,
+        fontWeight: 'bold',
+        color: '#FFF'
     }
 })

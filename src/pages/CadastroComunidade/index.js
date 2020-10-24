@@ -20,7 +20,8 @@ export default function CadastroComunidade(){
         local.child(chave).set({
             observacao: observacao,
             localizacao: localizacao,
-            referencia: referencia
+            referencia: referencia,
+            status: "PENDENTE"
         })
         .then(() =>{
             navigation.navigate('Comunidade');

@@ -1,24 +1,53 @@
-import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import React, {useState} from 'react';
+import { View, Text, StyleSheet, TouchableWithoutFeedback, Button} from 'react-native';
 
-const LongText = ({label, conteudo}) => {
+
+
+export default function LongText1(props){
+
+    const [isExpanded, setIsExpanded] = useState(false);
+
+    function changeIsExpanded(isExpanded){
+        if(isExpanded){
+            setIsExpanded(false);
+        }
+        if(isExpanded == false){
+            setIsExpanded(true);
+        }
+    }
+
+
     return(
         <View style={styles.line}>
 
-            <Text style={[styles.conteudoLine, styles.label]}>{label}</Text>
-            <Text style={[styles.conteudoLine, styles.conteudo]}>{conteudo}</Text>
+            <Text style={[styles.conteudoLine, styles.label]}>{props.label}</Text>
+
+
+            <TouchableWithoutFeedback onPress={() => changeIsExpanded(isExpanded)}>
+
+                <View>
+                    <Text style={[
+                        styles.conteudoLine, 
+                        styles.conteudo,
+                        isExpanded ? styles.expanded : styles.collapsed
+                        ]}>{props.conteudo}</Text>
+                </View>
+
+            </TouchableWithoutFeedback>
+
             
         </View>
-    );
+    )
 }
+
 
 const styles = StyleSheet.create({
     line:{
         //flexDirection: 'row',
     },
     conteudoLine:{
-        paddingLeft: 5,
-        fontSize: 16
+        paddingLeft: 8,
+        fontSize: 18
     },
     label:{
         fontWeight: 'bold',
@@ -29,7 +58,12 @@ const styles = StyleSheet.create({
     },
     longLabel:{
         fontSize: 12
+    },
+    collapsed:{
+        maxHeight: 20
+    },
+    expanded:{
+        flex: 1
     }
 })
 
-export default LongText;

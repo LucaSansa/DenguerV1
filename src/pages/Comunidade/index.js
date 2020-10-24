@@ -29,8 +29,8 @@ export default function Comunidade(){
                         key: childItem.key,
                         localizacao: childItem.val().localizacao,
                         observacao: childItem.val().observacao,
-                        referencia: childItem.val().referencia
-                        
+                        referencia: childItem.val().referencia,
+                        status: childItem.val().status
                     };
 
                     setLista(oldArray => [...oldArray, data]);

@@ -132,7 +132,7 @@ const styles = StyleSheet.create({
     },  
     areaAlertas:{
         backgroundColor: '#FFF',
-        width: '85%',
+        width: '90%',
         height: 450,
         borderRadius: 8
     } 
